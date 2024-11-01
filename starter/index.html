@@ -36,7 +36,7 @@
             <!-- END page-header -->
           </div>
 
-          <div class="ms-auto">
+          <div class="ms-auto" id="add-task-btn">
             <a
               href="#modal-task"
               data-bs-toggle="modal"
@@ -53,128 +53,124 @@
               <div class="panel-heading">
                 <h4 class="panel-title">To do (<span id="to-do-tasks-count">5</span>)</h4>
               </div>
-              <div class="list-group list-group-flush rounded-bottom overflow-hidden panel-body p-0" id="to-do-tasks">
-                <!-- TO DO TASKS HERE -->
-                <button class="">
-                  <div class="">
-                    <i class=""></i>
+              <div class="list-group list-group-flush rounded-bottom overflow-hidden panel-body p-0">
+                <div class="list-group-item d-flex border-top-0">
+                  <div class="me-3 fs-16px">
+                    <i class="far fa-question-circle text-gray-500 fa-fw"></i> 
                   </div>
-                  <div class="">
-                    <div class="">
-                      Keep all the updated requirements in one place
+                  <div class="flex-fill">
+                    <div class="fs-14px lh-12 mb-2px fw-bold text-dark">Enable open search</div>
+                    <div class="mb-1 fs-12px">
+                      <div class="text-gray-600 flex-1">#29949 opened yesterday by Terry</div>
                     </div>
-                    <div class="">
-                      <div class="">#1 created in 2022-10-08</div>
-                      <div
-                        class=""
-                        title="There is hardly anything more frustrating than having to look for current requirements in tens of comments under the actual description or having to decide which commenter is actually authorized to change the requirements. The goal here is to keep all the up-to-date requirements and details in the main/primary description of a task. Even though the information in comments may affect initial criteria, just update this primary description accordingly."
-                      >
-                        There is hardly anything more frustrating than having
-                        t...
+                    <div class="mb-1">
+                      <span class="badge bg-blue">docs</span>
+                      <span class="badge bg-success">feature</span>
+                    </div>
+                    <hr class="mb-10px bg-gray-600">
+                    <div class="d-flex align-items-center mb-5px">
+                      <div class="fs-12px me-2 text-dark fw-bold">
+                        Task (2/3)
+                      </div>
+                      <div class="progress h-5px w-100px mb-0 me-2">
+                        <div class="progress-bar progress-bar-striped" style="width: 66%;"></div>
+                      </div>
+                      <div class="fs-10px fw-bold">66%</div>
+                      <div class="ms-auto">
+                        <a href="#" class="btn btn-outline-default text-gray-600 btn-xs rounded-pill fs-10px px-2" data-bs-toggle="collapse" data-bs-target="#todoBoard">
+                          collapse
+                        </a>
                       </div>
                     </div>
-                    <div class="">
-                      <span class="">High</span>
-                      <span class="">Feature</span>
-                    </div>
-                  </div>
-                </button>
-                <button class="">
-                  <div class="">
-                    <i class=""></i>
-                  </div>
-                  <div class="">
-                    <div class="">
-                      Consider creating an acceptance criteria list
-                    </div>
-                    <div class="">
-                      <div class="">#2 created in 2022-10-08</div>
-                      <div
-                        class=""
-                        title="Descriptive requirements are very helpful when it comes to understanding the context of a problem, yet finally it is good to precisely specify what is expected. Thus the developer will not have to look for the actual requirements in a long, descriptive text but he will be able to easily get to the essence. One might find that sometimes — when acceptance criteria are well defined — there is little or no need for any additional information. Example:
-						a) User navigates to “/accounts” and clicks on red download CSV button
-						b) Popup appears with two buttons: “This year” and “Last year”
-						c) If user clicked on “Last year” download is initiated
-						d) CSV downloaded includes following columns…"
-                      >
-                        Descriptive requirements are very helpful when it
-                        comes...
+                    <div class="form-group mb-1">
+                      <div class="collapse show" id="todoBoard">
+                        <div class="form-check mb-1">
+                          <input type="checkbox" class="form-check-input" id="customCheck1" checked="">
+                          <label class="form-check-label" for="customCheck1">create ui for autocomplete</label>
+                        </div>
+                        <div class="form-check mb-1">
+                          <input type="checkbox" class="form-check-input" id="customCheck2" checked="">
+                          <label class="form-check-label" for="customCheck2">integrate jquery autocomplete with ui</label>
+                        </div>
+                        <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="customCheck3">
+                          <label class="form-check-label" for="customCheck3">backend search return as json data</label>
+                        </div>
                       </div>
                     </div>
-                    <div class="">
-                      <span class="">High</span>
-                      <span class="">Feature</span>
+                  </div>
+                </div>
+                <a href="#" class="list-group-item list-group-item-action d-flex">
+                  <div class="me-3 fs-16px">
+                    <i class="far fa-question-circle text-gray-500 fa-fw"></i> 
+                  </div>
+                  <div class="flex-fill">
+                    <div class="fs-14px lh-12 mb-2px fw-bold text-dark">Investigate adding markdownlint</div>
+                    <div class="mb-1 fs-12px">
+                      <div class="text-gray-600 flex-1">#29919 opened 9 days ago by xMediaKron</div>
+                    </div>
+                    <div class="mb-1">
+                      <span class="badge bg-gray-300 text-gray-900">build</span>
+                      <span class="badge bg-indigo">v5</span>
                     </div>
                   </div>
-                </button>
-                <button class="">
-                  <div class="">
-                    <i class=""></i>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action d-flex">
+                  <div class="me-3 fs-16px">
+                    <i class="far fa-question-circle text-gray-500 fa-fw"></i> 
                   </div>
-                  <div class="">
-                    <div class="">Provide examples, credentials, etc</div>
-                    <div class="">
-                      <div class="">#3 created in 2022-10-08</div>
-                      <div
-                        class=""
-                        title="If the expectation is to process or generate some file — attach an example of such a file. If the goal is to integrate what is being developed with some service, ensure your devs have access to this service and its documentation. This list could go on and on — the bottom line is — if there is something that our developer might make use of, try to foresee it and provide them with (access to) it."
-                      >
-                        If the expectation is to process or generate some file
-                        ...
+                  <div class="flex-fill">
+                    <div class="fs-14px lh-12 mb-2px fw-bold text-dark">Add a "Submit a Resource" form</div>
+                    <div class="mb-1 fs-12px">
+                      <div class="text-gray-600 flex-1">#29916 opened 9 days ago by Wasbbok</div>
+                    </div>
+                    <div class="mb-1 d-flex align-items-center">
+                      <div class="me-2"><span class="badge bg-success">enhancement</span></div>
+                      <div class="d-flex">
+                        <div class="widget-img widget-img-xs rounded-circle bg-dark me-n2" style="background-image: url(../assets/img/user/user-1.jpg)">
+                        </div>
+                        <div class="widget-img widget-img-xs rounded-circle bg-dark me-n2" style="background-image: url(../assets/img/user/user-2.jpg)">
+                        </div>
+                        <div class="widget-img widget-img-xs rounded-circle bg-dark me-n2" style="background-image: url(../assets/img/user/user-3.jpg)">
+                        </div>
+                        <div class="widget-icon widget-icon-xs rounded-circle bg-muted text-white fs-10px">
+                          +2
+                        </div>
                       </div>
                     </div>
-                    <div class="">
-                      <span class="">High</span>
-                      <span class="">Feature</span>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action d-flex">
+                  <div class="me-3 fs-16px">
+                    <i class="far fa-question-circle text-gray-500 fa-fw"></i> 
+                  </div>
+                  <div class="flex-fill">
+                    <div class="fs-14px lh-12 mb-2px fw-bold text-dark">Custom control border color missing on focus</div>
+                    <div class="mb-1 fs-12px">
+                      <div class="text-gray-600 flex-1">#29796 opened 29 days ago by mdo</div>
+                    </div>
+                    <div class="mb-1">
+                      <span class="badge bg-pink">docs</span>
                     </div>
                   </div>
-                </button>
-                <button class="">
-                  <div class="">
-                    <i class=""></i>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action d-flex">
+                  <div class="me-3 fs-16px">
+                    <i class="far fa-question-circle text-gray-500 fa-fw"></i> 
                   </div>
-                  <div class="">
-                    <div class="">Annotate</div>
-                    <div class="">
-                      <div class="">#4 created in 2022-10-08</div>
-                      <div
-                        class=""
-                        title="The mockup provided can sometimes be confusing for developers. Especially if it contains much more content than the scope of the task described. Drop a couple of arrows, outlines and annotations here and there to emphasize what are the important parts of the mockup from the task requirements perspective."
-                      >
-                        The mockup provided can sometimes be confusing for
-                        deve...
-                      </div>
+                  <div class="flex-fill">
+                    <div class="fs-14px lh-12 mb-2px fw-bold text-dark">New design for corporate page</div>
+                    <div class="mb-1 fs-12px">
+                      <div class="text-gray-600 flex-1">#29919 opened 19 days ago by sean</div>
                     </div>
-                    <div class="">
-                      <span class="">High</span>
-                      <span class="">Feature</span>
+                    <div class="mb-1">
+                      <span class="badge bg-gray-300 text-gray-900">design</span>
+                      <span class="badge bg-primary">v5</span>
                     </div>
                   </div>
-                </button>
-                <button class="">
-                  <div class="">
-                    <i class=""></i>
-                  </div>
-                  <div class="">
-                    <div class="">Use charts and diagrams</div>
-                    <div class="">
-                      <div class="">#5 created in 2022-10-08</div>
-                      <div
-                        class=""
-                        title="While it is not always necessary, sometimes it might be beneficial to prepare a flowchart, a block diagram or some other kind of concept visualization that will render it easy for the developer to comprehend the task and its scope."
-                      >
-                        While it is not always necessary, sometimes it might
-                        be...
-                      </div>
-                    </div>
-                    <div class="">
-                      <span class="">High</span>
-                      <span class="">Feature</span>
-                    </div>
-                  </div>
-                </button>
+                </a>
               </div>
-            </div>
+          </div>
           </div>
           <div class="col-xl-4 col-lg-6">
             <div class="panel panel-inverse">
@@ -393,8 +389,77 @@
     <!-- END #app -->
 
     <!-- TASK MODAL -->
-    <div class="modal fade" id="modal-task">
+
       <!-- Modal content goes here -->
+     
+      <!-- TASK MODAL -->
+      <div class="position-absolute top-0 w-100  " id="modal-task">
+      <div class="modal-dialog">
+      <div class="modal-content">
+      <form action="scripts.php" method="POST" id="form-task">
+      <div class="modal-header">
+      <h5 class="modal-title">Add Task</h5>
+      <a href="#" class="btn-close" data-bs-dismiss="modal" id="close-btn"></a>
+      </div>
+      <div class="modal-body">
+      <!-- This Input Allows Storing Task Index  -->
+      <input type="hidden" id="task-id">
+      <div class="mb-3">
+      <label class="form-label">Title</label>
+      <input type="text" class="form-control" id="task-title"/>
+      </div>
+      <div class="mb-3">
+      <label class="form-label">Type</label>
+      <div class="ms-3">
+      <div class="form-check mb-1">
+      <input class="form-check-input" name="task-type" type="radio" value="Feature" id="task-type-feature"/>
+      <label class="form-check-label" for="task-type-feature">Feature</label>
+      </div>
+      <div class="form-check">
+      <input class="form-check-input" name="task-type" type="radio" value="Bug" id="task-type-bug"/>
+      <label class="form-check-label" for="task-type-bug">Bug</label>
+      </div>
+      </div>
+      
+      </div>
+      <div class="mb-3">
+      <label class="form-label">Priority</label>
+      <select class="form-select" id="task-priority">
+      <option value="">Please select</option>
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+      <option value="Critical">Critical</option>
+      </select>
+      </div>
+      <div class="mb-3">
+      <label class="form-label">Status</label>
+      <select class="form-select" id="task-status">
+      <option value="">Please select</option>
+      <option value="To Do">To Do</option>
+      <option value="In Progress">In Progress</option>
+      <option value="Done">Done</option>
+      </select>
+      </div>
+      <div class="mb-3">
+      <label class="form-label">Date</label>
+      <input type="date" class="form-control" id="task-date"/>
+      </div>
+      <div class="mb-0">
+      <label class="form-label">Description</label>
+      <textarea class="form-control" rows="10" id="task-description"></textarea>
+      </div>
+      
+      </div>
+      <div class="modal-footer">
+      <a href="#" class="btn btn-white" data-bs-dismiss="modal">Cancel</a>
+      <button type="submit" name="delete" class="btn btn-danger task-action-btn d-none" id="task-delete-btn">Delete</a>
+      <button type="submit" name="update" class="btn btn-warning task-action-btn d-none" id="task-update-btn">Update</a>
+      <button type="submit" name="save" class="btn btn-primary task-action-btn" id="task-save-btn">Save</button>
+      </div>
+      </form>
+      </div>
+      </div>
     </div>
 
     <!-- ================== BEGIN core-js ================== -->
