@@ -8,6 +8,7 @@ let cancelFormBtn = document.getElementById("task-cancel-btn");
 //-------------task form variables--------------
 function addTask(evnt){
     evnt.preventDefault();
+    let id = document.getElementById("task-id").value = Date.now().toString(); 
     let taskTitle =document.getElementById("task-title").value;  
     let type = document.getElementById("task-type-feature").value;
     let priority = document.getElementById("task-priority").value; 
@@ -15,8 +16,7 @@ function addTask(evnt){
     let taskDate = document.getElementById("task-date").value;
     let description = document.getElementById("task-description").value;
      
-
-    let taskObj = {taskTitle, priority, status, taskDate, description, type};
+    let taskObj = {id, taskTitle, priority, status, taskDate, description, type};
 
     saveTasksLocaly(taskObj);
     resetInputs();
@@ -25,6 +25,7 @@ function addTask(evnt){
 saveFormBtn.addEventListener("click", addTask); 
 
 function resetInputs(){
+  document.getElementById("task-id").value = ""; 
     document.getElementById("task-title").value = "";  
     document.getElementById("task-type-feature").value = "";
     document.getElementById("task-priority").value = ""; 
@@ -67,7 +68,11 @@ function showTasks(task){
     taskContainer.innerHTML =`
                   <div class="me-3 fs-16px"><i class="far fa-question-circle text-gray-500 fa-fw"></i></div>
                   <div class="flex-fill">
+                    <input type="hidden" value="${task.id}" class="task-id">
                     <div class="fs-14px lh-12 mb-2px fw-bold text-dark">${task.taskTitle}</div>
+                    <div class="mb-1 fs-12px">
+                      <div class="text-gray-600 flex-1">${task.id}</div>
+                    </div>
                     <div class="mb-1 fs-12px">
                       <div class="text-gray-600 flex-1">${task.taskDate}</div>
                     </div>
@@ -78,8 +83,9 @@ function showTasks(task){
                       <span class="badge bg-gray-300 text-gray-900">${task.priority}</span>
                       <span class="badge bg-indigo">${task.type}</span>
                       <div class="task-buttons ">
-                          <span><button id="updated-btn">update</button></span>
-                          <span><button id="delete-btn">delete</button></span>
+                          <span><button class="btn btn-warning task-action-btn" id="updated-btn" onclick="update('${task.id}')">update</button></span>
+                          <span><button class="btn btn-danger task-action-btn " id="delete-btn" onclick="deleteTask('${task.id}')">delete</button></span>
+
                       </div>
                     </div>
                   </div>
@@ -112,8 +118,18 @@ function showTasks(task){
  }
 
  document.addEventListener("DOMContentLoaded", loadTasks)
+// --------- Delete function to delete the task in the local storage and not show in the list ------- 
 
-
+function deleteTask(id){
+  let tasksArray = JSON.parse(localStorage.getItem('tasks'));
+  if(tasksArray !== null){
+    tasksArray = tasksArray.filter(task => task.id !== id);
+    localStorage.setItem('tasks',JSON.stringify(tasksArray));
+    location.reload(); //l3saaaaaaa hahahah 
+    
+  }
+  
+}
 
 
 
