@@ -16,4 +16,8 @@
     backdrop-filter: blur(2.5px);
 }
 
-
+.dragging{
+     background-color: blue !important; 
+     color: white; 
+     cursor: move !important;
+}
