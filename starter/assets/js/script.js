@@ -19,9 +19,19 @@ function addTask(evnt){
     let taskObj = {taskTitle, priority, status, taskDate, description, type};
 
     saveTasksLocaly(taskObj);
+    resetInputs();
     addTaskForm.style.display="none";
 }
 saveFormBtn.addEventListener("click", addTask); 
+
+function resetInputs(){
+    document.getElementById("task-title").value = "";  
+    document.getElementById("task-type-feature").value = "";
+    document.getElementById("task-priority").value = ""; 
+    document.getElementById("task-status").value = "";
+    document.getElementById("task-date").value = "";
+    document.getElementById("task-description").value = "";
+}
 
 // ---------function to save the taks in the local storage------- rak nadi kml 
 
