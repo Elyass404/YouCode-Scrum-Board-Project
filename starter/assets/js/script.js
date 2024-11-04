@@ -1,10 +1,13 @@
 
 
 let addTaskForm = document.getElementById("modal-task");
+let updateTaskForm = document.getElementById("update-task");
 let addTaskBtn = document.getElementById("add-task-btn");
 let closeFormBtn = document.getElementById("close-btn");
 let saveFormBtn = document.getElementById("task-save-btn");
+let updateFormBtn = document.getElementById("task-update-btn");
 let cancelFormBtn = document.getElementById("task-cancel-btn");
+let updateCancelFormBtn = document.getElementById("update-task-cancel-btn");
 //-------------task form variables--------------
 function addTask(evnt){
     evnt.preventDefault();
@@ -23,6 +26,7 @@ function addTask(evnt){
     addTaskForm.style.display="none";
 }
 saveFormBtn.addEventListener("click", addTask); 
+
 
 function resetInputs(){
   document.getElementById("task-id").value = ""; 
@@ -83,7 +87,7 @@ function showTasks(task){
                       <span class="badge bg-gray-300 text-gray-900">${task.priority}</span>
                       <span class="badge bg-indigo">${task.type}</span>
                       <div class="task-buttons ">
-                          <span><button class="btn btn-warning task-action-btn" id="updated-btn" onclick="update('${task.id}')">update</button></span>
+                          <span><button class="btn btn-warning task-action-btn" id="updated-btn" onclick="clickingUpdate('${task.id}')">update</button></span>
                           <span><button class="btn btn-danger task-action-btn " id="delete-btn" onclick="deleteTask('${task.id}')">delete</button></span>
 
                       </div>
@@ -113,7 +117,7 @@ function showTasks(task){
     }
 
     tasksArray.forEach(task => {
-        showTasks(task)
+        showTasks(task);
     });
  }
 
@@ -126,10 +130,69 @@ function deleteTask(id){
     tasksArray = tasksArray.filter(task => task.id !== id);
     localStorage.setItem('tasks',JSON.stringify(tasksArray));
     location.reload(); //l3saaaaaaa hahahah 
-    
   }
-  
 }
+
+// ---------show the task information when clicking on the update button  -------
+
+function closing(evnt){
+  // evnt.preventDefault();
+  updateTaskForm.style.backgroundColor = "blue";
+}
+document.getElementById("hello").addEventListener('click', closing); 
+
+function clickingUpdate(id){
+  let tasksArray = JSON.parse(localStorage.getItem('tasks'));
+  let task = tasksArray.find(task => task.id === id);
+  console.log(task);
+    
+    document.getElementById("update-task-id").value = task.id;
+    document.getElementById("update-task-title").value = task.taskTitle;
+    document.getElementById("update-task-type-feature").value = task.type;
+    document.getElementById("update-task-priority").value = task.priority;
+    document.getElementById("update-task-date").value = task.taskDate;
+    document.getElementById("update-task-status").value = task.status;
+    document.getElementById("update-task-description").value = task.description;
+
+    updateTaskForm.style.display = "block";
+}
+
+
+function updateTask(evnt){
+  evnt.preventDefault();
+  let id = document.getElementById("update-task-id").value ;
+  let taskTitle =document.getElementById("update-task-title").value;  
+  let type = document.getElementById("update-task-type-feature").value;
+  let priority = document.getElementById("update-task-priority").value; 
+  let status = document.getElementById("update-task-status").value;
+  let taskDate = document.getElementById("update-task-date").value;
+  let description = document.getElementById("update-task-description").value;
+   
+  let taskObj = {id, taskTitle, priority, status, taskDate, description, type};
+
+  storeUpdatedTask(id,taskObj);
+  updateTaskForm.style.display="none";
+}
+ 
+function storeUpdatedTask(taskId, taskNewInfo){
+let tasksArray = JSON.parse(localStorage.getItem('tasks'));
+let taskIndex = tasksArray.findIndex(task => task.id === taskId);
+
+  tasksArray[taskIndex].taskTitle = taskNewInfo.taskTitle;
+  tasksArray[taskIndex].priority = taskNewInfo.priority;
+  tasksArray[taskIndex].status = taskNewInfo.status;
+  tasksArray[taskIndex].taskDate = taskNewInfo.taskDate;
+  tasksArray[taskIndex].description = taskNewInfo.description;
+  tasksArray[taskIndex].type = taskNewInfo.type;
+
+  localStorage.setItem('tasks', JSON.stringify(tasksArray));
+  location.reload();
+}
+
+updateFormBtn.addEventListener("click",updateTask)
+
+
+
 
 
 
@@ -143,7 +206,9 @@ function closeForm(){
     addTaskForm.style.display="none";
 }
 closeFormBtn.addEventListener("click", closeForm);
+
 cancelFormBtn.addEventListener("click", ()=>{addTaskForm.style.display="none";});
+updateCancelFormBtn.addEventListener("click", ()=>{updateTaskForm.style.display = "none";});
 
 
 

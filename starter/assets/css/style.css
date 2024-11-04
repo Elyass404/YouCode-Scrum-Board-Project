@@ -10,7 +10,7 @@
 
 }
 
-#modal-task{
+#modal-task, #update-task{
     display: none;
     background-color: rgba(0, 0, 0, 0.493);
     backdrop-filter: blur(2.5px);
